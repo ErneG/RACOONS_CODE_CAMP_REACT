@@ -19,6 +19,13 @@ const App = () => {
         setPlayer(player === 'X' ? 'O' : 'X');
     };
 
+    const checkDraw = (values, winner) => {
+        const noNullValues = !values.includes(null);
+        const noWinner = winner === null;
+        const isDraw = noNullValues && noWinner;
+        return isDraw;
+    };
+
     const handleClick = (index) => {
         //Create a copy of the values array.
         const newValues = [...values];
@@ -31,8 +38,16 @@ const App = () => {
         setValues(newValues);
 
         const winner = checkWinner(newValues);
-        setWinner(winner);
+        if (winner !== null) {
+            setGameOver(true);
+            setWinner(winner);
+        }
+        if (checkDraw(newValues, winner)) {
+            setWinner('Draw');
+            setGameOver(true);
+        }
     };
+
     return (
         <main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
             <h1 className="text-4xl">Tic Tac Toe</h1>

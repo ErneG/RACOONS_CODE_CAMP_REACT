@@ -379,3 +379,38 @@ return (
     </main>
 );
 ```
+
+> [!NOTE] Add checkDraw
+
+#### App.js. Create checkDraw function and add conditions to checkWinner
+
+```jsx
+const checkDraw = (values, winner) => {
+    const noNullValues = !values.includes(null);
+    const noWinner = winner === null;
+    const isDraw = noNullValues && noWinner;
+    return isDraw;
+};
+
+const handleClick = (index) => {
+    //Create a copy of the values array.
+    const newValues = [...values];
+    console.log('newValues:', newValues);
+
+    if (newValues[index] !== null) return; // if the square is already filled, do nothing
+
+    newValues[index] = player;
+    changePlayer();
+    setValues(newValues);
+
+    const winner = checkWinner(newValues);
+    if (winner !== null) {
+        setGameOver(true);
+        setWinner(winner);
+    }
+    if (checkDraw(newValues, winner)) {
+        setWinner('Draw');
+        setGameOver(true);
+    }
+};
+```
