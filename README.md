@@ -116,3 +116,9 @@ export default function Square({ passedValue }) {
     );
 }
 ```
+
+> [!NOTE] className for the main tag.
+
+```jsx
+<main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
+```
