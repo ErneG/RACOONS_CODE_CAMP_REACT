@@ -21,6 +21,8 @@ const App = () => {
         const newValues = [...values];
         console.log('newValues:', newValues);
 
+        if (newValues[index] !== null) return; // if the square is already filled, do nothing
+
         newValues[index] = player;
         changePlayer();
         setValues(newValues);

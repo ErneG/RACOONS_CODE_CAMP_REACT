@@ -234,3 +234,19 @@ const handleClick = (index) => {
     setValues(newValues);
 };
 ```
+
+> [!NOTE] Solve the overriding problem
+
+```jsx
+const handleClick = (index) => {
+    //Create a copy of the values array.
+    const newValues = [...values];
+    console.log('newValues:', newValues);
+
+    if (newValues[index] !== null) return; // if the square is already filled, do nothing
+
+    newValues[index] = player;
+    changePlayer();
+    setValues(newValues);
+};
+```
