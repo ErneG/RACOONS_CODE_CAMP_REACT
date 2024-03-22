@@ -1,7 +1,10 @@
 const App = () => {
     return (
         <main className="h-screen w-full">
-            {/* {Everything goes here} */}
+            <h1>
+                Congratulations! You successfully launched
+                this React project!
+            </h1>
         </main>
     );
 };
