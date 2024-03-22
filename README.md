@@ -481,3 +481,57 @@ return (
     </main>
 );
 ```
+
+> [!NOTE] Add the ability to restart the game
+
+#### Add restartGame function
+
+```jsx
+const restartGame = () => {
+    setValues(Array(9).fill(null)); // resets the game state to an empty board
+    setPlayer(Math.random() < 0.5 ? 'X' : 'O'); // randomly choose the first player
+    setGameOver(false);
+};
+```
+
+#### Add restartGame function
+
+```jsx
+const restartGame = () => {
+    setValues(Array(9).fill(null)); // resets the game state to an empty board
+    setPlayer(Math.random() < 0.5 ? 'X' : 'O'); // randomly choose the first player
+    setGameOver(false);
+};
+```
+
+#### Add a button to the game
+
+```jsx
+return (
+    <main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
+        <h1 className="text-4xl">Tic Tac Toe</h1>
+        {gameOver === true ? (
+            winner === null ? (
+                <h2 className="text-2xl">It is a draw!</h2>
+            ) : (
+                <h2 className="text-2xl">
+                    Winner: {winner}
+                </h2>
+            )
+        ) : (
+            <h2 className="text-2xl">Player: {player}</h2>
+        )}
+
+        <SquareGrid
+            passedValues={values}
+            passedFunction={handleClick}
+        />
+        <button
+            className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+            onClick={restartGame}
+        >
+            Restart
+        </button>
+    </main>
+);
+```

@@ -38,6 +38,12 @@ const App = () => {
         setValues(newValues);
     };
 
+    const restartGame = () => {
+        setValues(Array(9).fill(null)); // resets the game state to an empty board
+        setPlayer(Math.random() < 0.5 ? 'X' : 'O'); // randomly choose the first player
+        setGameOver(false);
+    };
+
     /**
      * Function to check if there is a winner after each turn
      * useEffect is a hook that allows us to perform side effects in function components
@@ -78,6 +84,12 @@ const App = () => {
                 passedValues={values}
                 passedFunction={handleClick}
             />
+            <button
+                className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+                onClick={restartGame}
+            >
+                Restart
+            </button>
         </main>
     );
 };
