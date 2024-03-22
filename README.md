@@ -122,3 +122,52 @@ export default function Square({ passedValue }) {
 ```jsx
 <main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
 ```
+
+> [!NOTE] The whole updated Square component and the value
+> array. Square component should be placed at
+> `src/components/Squares.jsx`
+
+```jsx
+import { FaRegCircle } from 'react-icons/fa6';
+import { IoClose } from 'react-icons/io5';
+
+export default function Square({ passedValue }) {
+    const Icon = () => {
+        if (passedValue === 'O') {
+            return <FaRegCircle className="h-12 w-12" />;
+        }
+        if (passedValue === 'X') {
+            return <IoClose className="h-12 w-12" />;
+        } else {
+            return (
+                <div className="h-12 w-12">
+                    {passedValue}
+                </div>
+            );
+        }
+    };
+
+    return (
+        <div
+            className="inline-flex transform items-center justify-center rounded-lg
+            border-2 border-solid border-gray-700 p-2 transition hover:scale-105"
+        >
+            <Icon />
+        </div>
+    );
+}
+```
+
+```jsx
+const values = [
+    'X',
+    'O',
+    'X',
+    'O',
+    'X',
+    'O',
+    'X',
+    'O',
+    'X'
+]; // An array of values
+```

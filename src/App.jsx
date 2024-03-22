@@ -1,6 +1,16 @@
 import Square from './components/Square';
 const App = () => {
-    const values = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // An array of values
+    const values = [
+        'X',
+        'O',
+        'X',
+        'O',
+        'X',
+        'O',
+        'X',
+        'O',
+        'X'
+    ]; // An array of values
 
     return (
         <main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
