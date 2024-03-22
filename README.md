@@ -1,24 +1,174 @@
 # The Raccoons Code Camp 6 - Javascript and React
 
-## This project was created in collaboration with [@mihaildanilov](https://github.com/mihaildanilov) and theRacoons
+## This project was created in collaboration with [@mihaildanilov](https://github.com/mihaildanilov)
 
 After you've finished making Tic Tac Toe, continue learning
 React and head to
 [this terrific tutorial](https://github.com/mihaildanilov/code-camp-6-finished)
-by [@mihaildanilov](https://github.com/mihaildanilov). That
+by [@mihaildanilov](https://github.com/mihaildanilov). This
 project contains very well documented step-by-step
 instructions and teaches how other JS libraries such as
 shadcn/ui.
 
-## Check dependencies
+# Installation Instructions for Visual Studio Code, Node.js, and Git
+
+## Installing Visual Studio Code (VSCode)
+
+Visual Studio Code is a free, lightweight code editor
+available for Windows, Linux, and macOS. Follow these steps
+to install VSCode:
+
+### Windows and macOS
+
+1. Go to the
+   [VSCode official website](https://code.visualstudio.com/)
+   and download the installer for your operating system.
+2. Run the installer:
+    - **Windows:** Follow the prompts in the Setup Wizard.
+      It's recommended to check the boxes to add VSCode to
+      your PATH and to create a desktop icon for easy
+      access.
+    - **macOS:** Open the downloaded `.dmg` file, and drag
+      the Visual Studio Code app to your Applications
+      folder.
+
+### Linux
+
+You can install VSCode using snap or through the package
+repository. Here's how to do it via snap:
+
+1. Open a terminal.
+2. Run the following command:
+   `sudo snap install --classic code`
+3. VSCode should now be installed on your system.
+
+## Installing Node.js
+
+Node.js is a JavaScript runtime built on Chrome's V8
+JavaScript engine, and it's necessary for developing
+server-side and networking applications.
+
+### Windows and macOS
+
+1. Go to the [Node.js official website](https://nodejs.org/)
+   and download the installer for your operating system.
+2. Run the installer:
+    - **Windows:** Follow the installation wizard's
+      instructions. Make sure to CHECK THE BOX to add
+      Node.js to your PATH. This step is crucial for using
+      Node.js in your terminal.
+    - **macOS:** Follow the prompts in the installer, which
+      will install Node.js and npm (Node Package Manager).
+
+### Linux
+
+Node.js can be installed via package manager on Linux.
+Here's how to do it on Ubuntu:
+
+1. Open a terminal.
+2. Update your package manager: `sudo apt update`
+3. Install Node.js: `sudo apt install nodejs`
+4. Install npm (Node Package Manager):
+   `sudo apt install npm`
+
+## Installing Git
+
+Git is a free and open source distributed version control
+system designed to handle everything from small to very
+large projects with speed and efficiency.
+
+### Windows
+
+1. Download the Git installer from the
+   [official Git website](https://git-scm.com/downloads).
+2. Run the installer. During the installation, it's
+   important to check the box that says "Add Git to PATH".
+   This step makes Git available from the command line.
+3. Follow the rest of the prompts to complete the
+   installation.
+
+### macOS
+
+Git might already be installed on your system. To check,
+open a terminal and type `git --version`.
+
+If Git is not installed, you can install it through the
+Xcode Command Line Tools. In a terminal, type:
 
 ```bash
-node -v  // Check Node.js installation
-npm -v   // Check Node.js installation
-git -v   // Check Node.js installation
+xcode-select --install
 ```
 
-> [!NOTE] Create a box. This is just the return statement
+Alternatively, you can install Git using Homebrew (a package
+manager for macOS) by running:
+
+```bash
+brew install git
+```
+
+### Linux (Ubuntu/Debian)
+
+1. Open a terminal.
+2. Update your package list to ensure you get the latest
+   version available: `sudo apt update`
+3. Install Git by running: `sudo apt install git`
+4. Verify the installation by checking the Git version:
+   `git --version`
+
+## Verifying Installation
+
+After installation, you can verify that VSCode, Node.js, and
+Git are correctly installed by opening a terminal or command
+prompt and running:
+
+-   For VSCode: `code --version`
+-   For Node.js: `node --version`
+-   For Git: `git --version`
+
+This will display the version of VSCode, Node.js, or Git
+installed on your machine, indicating that the installation
+was successful.
+
+## Let's clone the starting template
+
+### Navigate into the directory you want to save this project in.
+
+You can use th following commands to move through
+directories
+
+````bash
+cd <directory>      // go into a directory
+cd ..               // go to the parent directory
+mkdir <directory>   // create a directory
+
+
+### Pull the starting branch
+
+```bash
+git clone -b INITIAL-SETUP https://github.com/SolidDeath/RACOONS_CODE_CAMP_REACT.git
+````
+
+### Go into the cloned directory
+
+```bash
+cd RACOONS_CODE_CAMP_REACT
+```
+
+### Install dependencies
+
+```bash
+npm i
+```
+
+### Open your code editor
+
+```bash
+code .
+```
+
+## You're all set up! Let's start coding!
+
+Create a box. App.jsx.
 
 ```jsx
 return (
@@ -38,7 +188,7 @@ return (
 );
 ```
 
-> [!NOTE] Generate boxes dynamically
+### Generate boxes dynamically
 
 ```jsx
 const App = () => {
@@ -62,8 +212,7 @@ const App = () => {
 export default App;
 ```
 
-> [!NOTE] Numbers as values. Here the numbers represent
-> their index in the array.
+### Numbers as values. Here the numbers represent their index in the array.
 
 ```jsx
 const App = () => {
@@ -87,8 +236,7 @@ const App = () => {
 export default App;
 ```
 
-> [!NOTE] App component with Square component and the Square
-> component itself.
+### App component with Square component and the Square component itself.
 
 ```jsx
 import Square from './components/Square';
@@ -125,15 +273,13 @@ export default function Square({ passedValue }) {
 }
 ```
 
-> [!NOTE] className for the main tag.
+### className for the main tag.
 
 ```jsx
 <main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
 ```
 
-> [!NOTE] The whole updated Square component and the value
-> array. Square component should be placed at
-> `src/components/Squares.jsx`
+### The whole updated Square component and the value array. Square component should be placed at `src/components/Squares.jsx`
 
 ```jsx
 import { FaRegCircle } from 'react-icons/fa6';
@@ -180,7 +326,7 @@ const values = [
 ]; // An array of values
 ```
 
-> [!NOTE] App.jsx component with clicking
+### App.jsx component with clicking
 
 ```jsx
 import Square from './components/Square';
@@ -219,8 +365,7 @@ const App = () => {
 export default App;
 ```
 
-> [!NOTE] App.jsx. Switching players. Should be placed just
-> below values useState hook.
+### App.jsx. Switching players. Should be placed just below values useState hook.
 
 ```jsx
 const [player, setPlayer] = useState(
@@ -243,7 +388,7 @@ const handleClick = (index) => {
 };
 ```
 
-> [!NOTE] Solve the overriding problem
+### Solve the overriding problem
 
 ```jsx
 const handleClick = (index) => {
@@ -259,7 +404,7 @@ const handleClick = (index) => {
 };
 ```
 
-> [!NOTE] Creating SquareGrid.
+### Creating SquareGrid.
 
 #### SquareGrid.jsx should be placed at `src/components/SquareGrid.jsx`.
 
@@ -306,7 +451,7 @@ return (
 );
 ```
 
-> [!NOTE] Create the checkWinner helper function.
+### Create the checkWinner helper function.
 
 #### checkWinner.jsx should be placed at `src/utils/checkWinner.jsx`.
 
@@ -341,7 +486,7 @@ export default function checkWinner(values) {
 }
 ```
 
-> [!NOTE] Use the checkWinner funciton
+### Use the checkWinner funciton
 
 #### App.js Add states for winner and gameOver
 
@@ -388,7 +533,7 @@ return (
 );
 ```
 
-> [!NOTE] Add checkDraw
+### Add checkDraw
 
 #### App.js. Create checkDraw function and add conditions to checkWinner
 
@@ -423,7 +568,7 @@ const handleClick = (index) => {
 };
 ```
 
-> [!NOTE] Utilize useEffect hook
+### Utilize useEffect hook
 
 #### Import useEffect
 
@@ -464,7 +609,7 @@ useEffect(() => {
 }, [values]);
 ```
 
-> [!NOTE] Conditional rendering.
+### Conditional rendering.
 
 ```jsx
 return (
@@ -490,7 +635,7 @@ return (
 );
 ```
 
-> [!NOTE] Add the ability to restart the game
+### Add the ability to restart the game
 
 #### Add restartGame function
 
