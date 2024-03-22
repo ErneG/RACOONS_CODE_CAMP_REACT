@@ -250,3 +250,50 @@ const handleClick = (index) => {
     setValues(newValues);
 };
 ```
+
+> [!NOTE] Creating SquareGrid.
+
+#### SquareGrid.jsx should be placed at `src/components/SquareGrid.jsx`.
+
+```jsx
+import Square from './Square';
+
+export default function SquareGrid({
+    passedValues,
+    passedFunction: handleClick //renaming the passedFunction prop to handleClick to keep the original code intact
+}) {
+    return (
+        <div className="grid grid-cols-3 gap-2">
+            {passedValues.map((value, index) => (
+                <div
+                    key={index}
+                    onClick={() => handleClick(index)}
+                >
+                    <Square passedValue={value} />
+                </div>
+            ))}
+        </div>
+    );
+}
+```
+
+#### Import statement at the top of App.jsx
+
+```jsx
+import SquareGrid from './components/SquareGrid';
+```
+
+#### Return statement at App.jsx.
+
+```jsx
+return (
+    <main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
+        <h1 className="text-4xl">Tic Tac Toe</h1>
+        <h2 className="text-2xl">Player: {player}</h2>
+        <SquareGrid
+            passedValues={values}
+            passedFunction={handleClick}
+        />
+    </main>
+);
+```

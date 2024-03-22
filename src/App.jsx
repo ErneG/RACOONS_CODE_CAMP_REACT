@@ -1,4 +1,4 @@
-import Square from './components/Square';
+import SquareGrid from './components/SquareGrid';
 import { useState } from 'react';
 
 const App = () => {
@@ -29,16 +29,12 @@ const App = () => {
     };
     return (
         <main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
-            <div className="grid grid-cols-3 gap-2">
-                {values.map((value, index) => (
-                    <div
-                        key={index}
-                        onClick={() => handleClick(index)}
-                    >
-                        <Square passedValue={value} />
-                    </div>
-                ))}
-            </div>
+            <h1 className="text-4xl">Tic Tac Toe</h1>
+            <h2 className="text-2xl">Player: {player}</h2>
+            <SquareGrid
+                passedValues={values}
+                passedFunction={handleClick}
+            />
         </main>
     );
 };
