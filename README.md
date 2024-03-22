@@ -414,3 +414,44 @@ const handleClick = (index) => {
     }
 };
 ```
+
+> [!NOTE] Utilize useEffect hook
+
+#### Import useEffect
+
+```jsx
+import { useState, useEffect } from 'react';
+```
+
+#### Add useEffect hook and modify handleClick
+
+```jsx
+const handleClick = (index) => {
+    //Create a copy of the values array.
+    const newValues = [...values];
+    console.log('newValues:', newValues);
+
+    if (newValues[index] !== null) return; // if the square is already filled, do nothing
+
+    newValues[index] = player;
+    changePlayer();
+    setValues(newValues);
+};
+
+/**
+ * Function to check if there is a winner after each turn
+ * useEffect is a hook that allows us to perform side effects in function components
+ * that just means that every time the `values` array changes, the function inside useEffect will run
+ */
+useEffect(() => {
+    const winner = checkWinner(values);
+    setWinner(winner);
+
+    const isDraw = checkDraw(values, winner);
+
+    if (winner || isDraw) {
+        // if there is a winner or the game is a draw, set the game over
+        setGameOver(true);
+    }
+}, [values]);
+```

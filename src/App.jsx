@@ -1,6 +1,6 @@
 import checkWinner from './utils/checkWinner';
 import SquareGrid from './components/SquareGrid';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const App = () => {
     //An array of 9 null values. Null represents an empty square.
@@ -36,17 +36,24 @@ const App = () => {
         newValues[index] = player;
         changePlayer();
         setValues(newValues);
-
-        const winner = checkWinner(newValues);
-        if (winner !== null) {
-            setGameOver(true);
-            setWinner(winner);
-        }
-        if (checkDraw(newValues, winner)) {
-            setWinner('Draw');
-            setGameOver(true);
-        }
     };
+
+    /**
+     * Function to check if there is a winner after each turn
+     * useEffect is a hook that allows us to perform side effects in function components
+     * that just means that every time the `values` array changes, the function inside useEffect will run
+     */
+    useEffect(() => {
+        const winner = checkWinner(values);
+        setWinner(winner);
+
+        const isDraw = checkDraw(values, winner);
+
+        if (winner || isDraw) {
+            // if there is a winner or the game is a draw, set the game over
+            setGameOver(true);
+        }
+    }, [values]);
 
     return (
         <main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
