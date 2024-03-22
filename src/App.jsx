@@ -7,12 +7,22 @@ const App = () => {
         Array(9).fill(null)
     );
 
+    const [player, setPlayer] = useState(
+        Math.random() < 0.5 ? 'X' : 'O' // randomly choose the first player. Math.random() generates a random number between 0 and 1
+    );
+
+    // Function to switch the player after each turn
+    const changePlayer = () => {
+        setPlayer(player === 'X' ? 'O' : 'X');
+    };
+
     const handleClick = (index) => {
         //Create a copy of the values array.
         const newValues = [...values];
         console.log('newValues:', newValues);
 
-        newValues[index] = 'X';
+        newValues[index] = player;
+        changePlayer();
         setValues(newValues);
     };
     return (
