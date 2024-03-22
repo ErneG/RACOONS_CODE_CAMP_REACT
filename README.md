@@ -332,3 +332,50 @@ export default function checkWinner(values) {
     return null;
 }
 ```
+
+> [!NOTE] Use the checkWinner funciton
+
+#### App.js Add states for winner and gameOver
+
+```jsx
+const [player, setPlayer] = useState(
+    Math.random() < 0.5 ? 'X' : 'O' // randomly choose the first player. Math.random() generates a random number between 0 and 1
+);
+const [winner, setWinner] = useState(null);
+const [gameOver, setGameOver] = useState(false);
+```
+
+#### App.js. Use the checkWinner helper funciton
+
+```jsx
+const handleClick = (index) => {
+    //Create a copy of the values array.
+    const newValues = [...values];
+    console.log('newValues:', newValues);
+
+    if (newValues[index] !== null) return; // if the square is already filled, do nothing
+
+    newValues[index] = player;
+    changePlayer();
+    setValues(newValues);
+
+    const winner = checkWinner(newValues);
+    setWinner(winner);
+};
+```
+
+#### App.js. Show the winner to the user.
+
+```jsx
+return (
+    <main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
+        <h1 className="text-4xl">Tic Tac Toe</h1>
+        <h2 className="text-2xl">Player: {player}</h2>
+        <h2 className="text-2xl">Winner: {winner}</h2>
+        <SquareGrid
+            passedValues={values}
+            passedFunction={handleClick}
+        />
+    </main>
+);
+```

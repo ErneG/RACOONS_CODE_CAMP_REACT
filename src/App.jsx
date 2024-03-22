@@ -1,3 +1,4 @@
+import checkWinner from './utils/checkWinner';
 import SquareGrid from './components/SquareGrid';
 import { useState } from 'react';
 
@@ -10,6 +11,8 @@ const App = () => {
     const [player, setPlayer] = useState(
         Math.random() < 0.5 ? 'X' : 'O' // randomly choose the first player. Math.random() generates a random number between 0 and 1
     );
+    const [winner, setWinner] = useState(null);
+    const [gameOver, setGameOver] = useState(false);
 
     // Function to switch the player after each turn
     const changePlayer = () => {
@@ -26,11 +29,15 @@ const App = () => {
         newValues[index] = player;
         changePlayer();
         setValues(newValues);
+
+        const winner = checkWinner(newValues);
+        setWinner(winner);
     };
     return (
         <main className="flex h-screen w-full flex-col items-center justify-center gap-2 bg-[#050505] text-white">
             <h1 className="text-4xl">Tic Tac Toe</h1>
             <h2 className="text-2xl">Player: {player}</h2>
+            <h2 className="text-2xl">Winner: {winner}</h2>
             <SquareGrid
                 passedValues={values}
                 passedFunction={handleClick}
