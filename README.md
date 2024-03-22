@@ -1,6 +1,14 @@
 # The Raccoons Code Camp 6 - Javascript and React
 
-## This project was created in collaboration with @mihaildanilov
+## This project was created in collaboration with [@mihaildanilov](https://github.com/mihaildanilov) and theRacoons
+
+After you've finished making Tic Tac Toe, continue learning
+React and head to
+[this terrific tutorial](https://github.com/mihaildanilov/code-camp-6-finished)
+by [@mihaildanilov](https://github.com/mihaildanilov). That
+project contains very well documented step-by-step
+instructions and teaches how other JS libraries such as
+shadcn/ui.
 
 ## Check dependencies
 
