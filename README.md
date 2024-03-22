@@ -1,5 +1,7 @@
 # The Raccoons Code Camp 6 - Javascript and React
 
+## This project was created in collaboration with @mihaildanilov
+
 ## Check dependencies
 
 ```bash
