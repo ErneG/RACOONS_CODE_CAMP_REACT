@@ -1,9 +1,9 @@
 const App = () => {
-    const values = ['BOX 1', 'BOX 2']; // An array of values
+    const values = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // An array of values
 
     return (
         <main className="h-screen w-full">
-            <div>
+            <div className="grid grid-cols-3 gap-2">
                 {values.map((value, index) => (
                     <div
                         key={index} // Necessary for React to keep track of the elements
