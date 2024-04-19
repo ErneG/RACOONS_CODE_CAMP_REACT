@@ -27,3 +27,5 @@ npm i
 ```bash
 code .
 ```
+
+## Switch the branch to "STEPS"
